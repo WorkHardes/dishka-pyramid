@@ -1,0 +1,6 @@
+# Code Editors
+.vscode
+
+# Python files
+.venv*
+__pycache__

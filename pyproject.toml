@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dishka-pyramid"
+version = "1.0.0"
+description = "Dishka DI integration for Pyramid framework"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "dishka>=1.8.0",
+    "pyramid>=2.0.2",
+]
+
+[tool.hatchling.build]
+packages = ["src/dishka_pyramid"]
+
+[tool.hatchling.build.targets.wheel]
+include = [
+    "src/dishka_pyramid/**/*.py",
+    "src/dishka_pyramid/py.typed",
+]
