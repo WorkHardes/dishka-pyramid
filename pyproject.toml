@@ -14,7 +14,7 @@ dependencies = [
     "pyramid>=2.0.2",
     # pyramid fails to start with setuptools>=82
     # see: https://github.com/Pylons/pyramid/issues/3731
-    "setuptools<82",
+    "setuptools<83",
 ]
 
 [dependency-groups]
