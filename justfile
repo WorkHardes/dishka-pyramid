@@ -20,7 +20,7 @@ formatter:
 [doc('Mypy check types')]
 [group('linter')]
 check-types:
-    uv run mypy {{ src_dir_path }} {{ tests_dir_path }}
+    uv run mypy
 
 [doc('Install backend')]
 [group('infra')]
