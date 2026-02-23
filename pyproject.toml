@@ -12,6 +12,17 @@ license = { text = "Apache-2.0" }
 dependencies = [
     "dishka>=1.8.0",
     "pyramid>=2.0.2",
+    "setuptools==81.0.0",
+]
+
+[dependency-groups]
+lint = [
+    "mypy>=1.19.1",
+    "ruff>=0.15.2",
+]
+test = [
+    "pytest>=9.0.2",
+    "webtest>=3.0.7",
 ]
 
 [tool.hatchling.build]
@@ -22,3 +33,20 @@ include = [
     "src/dishka_pyramid/**/*.py",
     "src/dishka_pyramid/py.typed",
 ]
+
+[tool.mypy]
+files = ["src", "tests"]
+strict = true
+python_version = "3.12"
+strict_bytes = true
+local_partial_types = true
+ignore_missing_imports = true
+no_implicit_optional = true
+check_untyped_defs = true
+show_error_codes = true
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+disallow_any_unimported = false

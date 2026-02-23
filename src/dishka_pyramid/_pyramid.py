@@ -1,6 +1,6 @@
 import atexit
 from collections.abc import Callable
-from typing import Final
+from typing import Final, cast
 
 from dishka import AsyncContainer, Container, Provider, Scope, from_context
 from dishka.integrations.base import wrap_injection
@@ -48,7 +48,7 @@ def inject[**P, T](func: Callable[P, T]) -> Callable[P, T]:
         ...     return Response(f"Hello {me.name}")
     """
 
-    def container_getter(args: tuple, _: dict) -> Container:
+    def container_getter(args: tuple[object, ...], _: dict[str, object]) -> Container:
         request = args[0]
         if not isinstance(request, Request):
             msg = (
@@ -65,7 +65,7 @@ def inject[**P, T](func: Callable[P, T]) -> Callable[P, T]:
             )
             raise AttributeError(msg)
 
-        return container
+        return cast(Container, container)
 
     return wrap_injection(
         func=func,
