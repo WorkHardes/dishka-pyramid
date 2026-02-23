@@ -65,7 +65,7 @@ def inject[**P, T](func: Callable[P, T]) -> Callable[P, T]:
             )
             raise AttributeError(msg)
 
-        return cast(Container, container)
+        return cast("Container", container)
 
     return wrap_injection(
         func=func,

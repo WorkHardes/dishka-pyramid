@@ -12,7 +12,7 @@ from tests.common import (
 )
 
 
-@pytest.fixture()
+@pytest.fixture
 def app() -> TestApp:
     container = make_container(PyramidProvider(), MockProvider())
     config = Configurator()

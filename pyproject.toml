@@ -50,3 +50,82 @@ disallow_untyped_defs = true
 disallow_incomplete_defs = true
 disallow_untyped_decorators = true
 disallow_any_unimported = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+cache-dir = "/tmp/ruff_cache"
+
+[tool.ruff.lint]
+select = [
+    "ERA",   # eradicate
+    "FAST",  # fastapi
+    "YTT",   # flake8-2020
+    "ANN",   # flake8-annotations
+    "ASYNC", # flake8-async
+    "S",     # flake8-bandit
+    "FBT",   # flake8-boolean-trap
+    "B",     # flake8-bugbear
+    "A",     # flake8-builtins
+    "COM",   # flake8-commas
+    "C4",    # flake8-comprehensions
+    "DTZ",   # flake8-datetimez
+    "T10",   # flake8-debugger
+    "EM",    # flake8-errmsg
+    "EXE",   # flake8-executable
+    "FIX",   # flake8-fixme
+    "FA",    # flake8-future-annotations
+    "INT",   # flake8-gettext
+    "ISC",   # flake8-implicit-str-concat
+    "ICN",   # flake8-import-conventions
+    "LOG",   # flake8-logging
+    "G",     # flake8-logging-format
+    "PIE",   # flake8-pie
+    "T20",   # flake8-print
+    "PYI",   # flake8-pyi
+    "PT",    # flake8-pytest-style
+    "Q",     # flake8-quotes
+    "RSE",   # flake8-raise
+    "RET",   # flake8-return
+    "SLF",   # flake8-self
+    "SIM",   # flake8-simplify
+    "SLOT",  # flake8-slot
+    "TID",   # flake8-tidy-imports
+    "TD",    # flake8-todo
+    "TC",    # flake8-type-checking
+    "ARG",   # flake8-unused-arguments
+    "PTH",   # flake8-use-pathlib
+    "FLY",   # flynt
+    "I",     # isort
+    "C90",   # mccabe
+    "N",     # pep8-naming
+    "PERF",  # perflint
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "F",     # pyflakes
+    "PGH",   # pygrep-hooks
+    "PLC",   # pylint convention
+    "PLE",   # pylint error
+    "PLR",   # pylint refactor
+    "PLW",   # pylint warning
+    "UP",    # pyupgrade
+    "FURB",  # refurb
+    "RUF",   # ruff specific rules
+    "TRY",   # tryceratops
+]
+ignore = [
+    "ANN002",  # Missing type annotation for `*args`
+    "ANN003",  # Missing type annotation for `**kwargs`
+    "RUF001",  # String contains ambiguous {}. Did you mean {}?
+    "RUF002",  # Docstring contains ambiguous {}. Did you mean {}?
+    "RUF003",  # Comment contains ambiguous {}. Did you mean {}?
+    "TC001",   # Move application import into a type-checking
+    "TC002",   # Move third-party import into a type-checking
+    "TC003",   # Move standard library import into a type-checking
+]
+
+[tool.ruff.per-file-ignores]
+"tests/**/*.py" = [
+    "S",
+    "ARG",
+]

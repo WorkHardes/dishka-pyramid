@@ -41,7 +41,7 @@ def test_setup_dishka_raises_on_async_container() -> None:
     config = Configurator()
 
     with pytest.raises(TypeError, match="AsyncContainer is not supported"):
-        setup_dishka(async_container, config)
+        setup_dishka(async_container, config)  # type: ignore[arg-type]
 
 
 def test_inject_raises_without_middleware() -> None:
@@ -55,7 +55,7 @@ def test_inject_raises_without_middleware() -> None:
     fake_request = Request.blank("/")
 
     with pytest.raises(AttributeError, match="dishka_container"):
-        bare_view(fake_request)
+        bare_view(fake_request)  # type: ignore[call-arg]
 
 
 def test_inject_raises_on_non_request_first_arg() -> None:
@@ -67,4 +67,4 @@ def test_inject_raises_on_non_request_first_arg() -> None:
         return Response("ok")
 
     with pytest.raises(TypeError, match="Expected Pyramid Request"):
-        bad_view("not a request")
+        bad_view("not a request")  # type: ignore[call-arg]

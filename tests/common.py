@@ -6,10 +6,10 @@ from dishka_pyramid import FromDishka, inject
 
 
 class UsersRepository:
-    def retrieve_one(self, user_id: int) -> dict:
+    def retrieve_one(self, user_id: int) -> dict[str, int | str]:
         return {"id": user_id, "name": "Ivan", "language": "ru"}
 
-    def update_language(self, user_id: int, language: str) -> dict:
+    def update_language(self, user_id: int, language: str) -> dict[str, int | str]:
         return {"id": user_id, "name": "Ivan", "language": language}
 
 
@@ -17,7 +17,7 @@ class GetUserInteractor:
     def __init__(self, users_repo: UsersRepository) -> None:
         self.users_repo = users_repo
 
-    def execute(self, user_id: int) -> dict:
+    def execute(self, user_id: int) -> dict[str, int | str]:
         return self.users_repo.retrieve_one(user_id)
 
 
@@ -25,7 +25,7 @@ class UpdateUserLanguageInteractor:
     def __init__(self, users_repo: UsersRepository) -> None:
         self.users_repo = users_repo
 
-    def execute(self, user_id: int, language: str) -> dict:
+    def execute(self, user_id: int, language: str) -> dict[str, int | str]:
         return self.users_repo.update_language(user_id, language)
 
 

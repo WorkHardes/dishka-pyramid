@@ -7,8 +7,8 @@ from ._pyramid import (
 )
 
 __all__ = (
-    "PyramidProvider",
     "FromDishka",
+    "PyramidProvider",
     "inject",
     "setup_dishka",
 )
