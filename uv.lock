@@ -61,7 +61,7 @@ test = [
 requires-dist = [
     { name = "dishka", specifier = ">=1.8.0" },
     { name = "pyramid", specifier = ">=2.0.2" },
-    { name = "setuptools", specifier = "==81.0.0" },
+    { name = "setuptools", specifier = "<82" },
 ]
 
 [package.metadata.requires-dev]

@@ -12,7 +12,9 @@ license = { text = "Apache-2.0" }
 dependencies = [
     "dishka>=1.8.0",
     "pyramid>=2.0.2",
-    "setuptools==81.0.0",
+    # pyramid fails to start with setuptools>=82
+    # see: https://github.com/Pylons/pyramid/issues/3731
+    "setuptools<82",
 ]
 
 [dependency-groups]
