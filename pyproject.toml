@@ -37,9 +37,10 @@ include = [
 ]
 
 [tool.mypy]
+python_version = "3.12"
+cache_dir = "/tmp/mypy_cache"
 files = ["src", "tests"]
 strict = true
-python_version = "3.12"
 strict_bytes = true
 local_partial_types = true
 ignore_missing_imports = true
