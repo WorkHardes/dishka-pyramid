@@ -69,7 +69,7 @@ include = [
     "src/dishka_pyramid/py.typed",
 ]
 
-[tool.hatch.build.targets.sdist]           # ← добавлено: явный контроль содержимого sdist
+[tool.hatch.build.targets.sdist]
 include = [
     "src/",
     "tests/",
