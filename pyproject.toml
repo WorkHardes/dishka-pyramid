@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "dishka-pyramid"
-version = "1.0.0"
+version = "1.0.1"
 description = "Dishka DI integration for Pyramid framework"
 readme = "README.md"
 authors = [
