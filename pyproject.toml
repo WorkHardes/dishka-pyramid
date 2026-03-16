@@ -7,12 +7,48 @@ name = "dishka-pyramid"
 version = "1.0.0"
 description = "Dishka DI integration for Pyramid framework"
 readme = "README.md"
+authors = [
+    { name = "Orekhov Arkady", email = "arckadyor34@gmail.com" },
+]
 requires-python = ">=3.12"
-license = { text = "Apache-2.0" }
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+keywords = [
+    "dishka",
+    "pyramid",
+    "dependency-injection",
+    "di",
+    "ioc",
+    "wsgi",
+    "web",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: WSGI",
+    "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Framework :: Pyramid",
+    "Typing :: Typed",
+]
 dependencies = [
     "dishka>=1.8.0",
     "pyramid>=2.1",
 ]
+
+[project.urls]
+Homepage   = "https://github.com/WorkHardes/dishka-pyramid"
+Repository = "https://github.com/WorkHardes/dishka-pyramid"
+Issues     = "https://github.com/WorkHardes/dishka-pyramid/issues"
 
 [dependency-groups]
 lint = [
@@ -24,13 +60,22 @@ test = [
     "webtest>=3.0.7",
 ]
 
-[tool.hatchling.build]
+[tool.hatch.build]
 packages = ["src/dishka_pyramid"]
 
-[tool.hatchling.build.targets.wheel]
+[tool.hatch.build.targets.wheel]
 include = [
     "src/dishka_pyramid/**/*.py",
     "src/dishka_pyramid/py.typed",
+]
+
+[tool.hatch.build.targets.sdist]           # ← добавлено: явный контроль содержимого sdist
+include = [
+    "src/",
+    "tests/",
+    "README.md",
+    "LICENSE*",
+    "pyproject.toml",
 ]
 
 [tool.mypy]
@@ -124,7 +169,7 @@ ignore = [
     "TC003",   # Move standard library import into a type-checking
 ]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = [
     "S",
     "ARG",
