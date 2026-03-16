@@ -60,22 +60,14 @@ test = [
     "webtest>=3.0.7",
 ]
 
-[tool.hatch.build]
-packages = ["src/dishka_pyramid"]
-
 [tool.hatch.build.targets.wheel]
-include = [
-    "src/dishka_pyramid/**/*.py",
-    "src/dishka_pyramid/py.typed",
-]
+packages = ["src/dishka_pyramid"]
 
 [tool.hatch.build.targets.sdist]
 include = [
     "src/",
-    "tests/",
     "README.md",
-    "LICENSE*",
-    "pyproject.toml",
+    "LICENSE",
 ]
 
 [tool.mypy]
