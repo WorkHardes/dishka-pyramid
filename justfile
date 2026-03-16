@@ -38,3 +38,5 @@ upgrade-packages:
 [group('test')]
 test:
     uv run pytest tests/ -v
+
+alias t := test
