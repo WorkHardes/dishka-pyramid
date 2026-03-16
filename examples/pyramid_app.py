@@ -33,12 +33,9 @@ def my_view(request: Request, interactor: FromDishka[GetHelloInteractor]) -> Res
 container = make_container(PyramidProvider(), MyProvider())
 
 config = Configurator()
-setup_dishka(container, config)
+setup_dishka(container=container, config=config)
 
-config.add_route(
-    name=GET_HELLO_ROUTE_NAME,
-    pattern="/hello",
-)
+config.add_route(name=GET_HELLO_ROUTE_NAME, pattern="/hello")
 config.scan()
 
 app = config.make_wsgi_app()
